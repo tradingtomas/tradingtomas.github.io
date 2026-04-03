@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoría Trading 2026 | @trading.tomas</title>
+  <meta name="description" content="Aprendé a operar NQ y Forex con metodología estructural real. Sin indicadores. Sin señales. Sin depender de nadie." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --card:#141416;
+      --card-2:#1b1b1f;
+      --text:#f4f4f5;
+      --muted:#a1a1aa;
+      --line:#27272a;
+      --gold:#c9a86a;
+      --gold-2:#e5c78f;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.28);
+      --radius:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background:linear-gradient(180deg,#09090b 0%, #0e0e11 100%);
+      color:var(--text);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(100% - 32px, var(--max));margin:0 auto}
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(10,10,12,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:72px;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:-0.03em;
+    }
+    .brand-badge{
+      width:10px;height:10px;border-radius:999px;background:var(--gold);
+      box-shadow:0 0 18px rgba(201,168,106,.55);
+    }
+    .brand span{color:var(--gold)}
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      background:var(--white);
+      color:#09090b;
+      font-weight:700;
+      font-size:14px;
+      white-space:nowrap;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:72px 0 48px;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:-80px;
+      width:360px;
+      height:360px;
+      background:radial-gradient(circle, rgba(201,168,106,.20) 0%, rgba(201,168,106,.06) 35%, transparent 70%);
+      pointer-events:none;
+      filter:blur(8px);
+    }
+    .hero-grid{
+      display:grid;
+      gap:28px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(201,168,106,.28);
+      background:rgba(201,168,106,.09);
+      color:var(--gold-2);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(2.4rem, 7vw, 5rem);
+      line-height:.96;
+      letter-spacing:-0.06em;
+      font-weight:900;
+      max-width:800px;
+    }
+    h1 .accent{color:var(--gold)}
+    .hero p{
+      margin:0;
+      max-width:680px;
+      color:var(--muted);
+      font-size:clamp(1rem, 2.2vw, 1.12rem);
+    }
+    .hero strong{color:var(--text)}
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:54px;
+      padding:0 22px;
+      border-radius:14px;
+      font-weight:800;
+      transition:transform .16s ease, opacity .16s ease, background .16s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--white);
+      color:#09090b;
+      box-shadow:var(--shadow);
+    }
+    .btn-secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card-top{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .mini-stat{
+      background:var(--card-2);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:16px;
+      padding:18px 16px;
+    }
+    .mini-stat .num{
+      font-size:1.5rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+      color:var(--gold);
+    }
+    .mini-stat .label{
+      color:#8b8b93;
+      font-size:.8rem;
+      margin-top:6px;
+    }
+
+    .ticker{
+      border-top:1px solid rgba(255,255,255,.05);
+      border-bottom:1px solid rgba(255,255,255,.05);
+      background:#0a0a0b;
+      overflow:hidden;
+    }
+    .ticker-track{
+      display:flex;
+      gap:28px;
+      white-space:nowrap;
+      padding:14px 0;
+      animation:ticker 24s linear infinite;
+      color:#8b8b93;
+      font-size:.82rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .ticker-track span{color:var(--gold)}
+    @keyframes ticker{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    .section{
+      padding:68px 0;
+    }
+    .section-head{
+      margin-bottom:24px;
+    }
+    .tag{
+      color:var(--gold);
+      font-size:.78rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-bottom:10px;
+      display:block;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:clamp(1.9rem, 5.5vw, 3.1rem);
+      line-height:1.02;
+      letter-spacing:-.05em;
+    }
+    h2 .accent{color:var(--gold)}
+    .lead{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .cards-2{grid-template-columns:1fr}
+    .cards-3{grid-template-columns:1fr}
+    .cards-4{grid-template-columns:1fr 1fr}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.06rem;
+      letter-spacing:-.03em;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .about-box{
+      display:grid;
+      gap:16px;
+      grid-template-columns:1fr;
+    }
+
+    .feature{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .icon{
+      flex:0 0 42px;
+      width:42px;height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:rgba(201,168,106,.10);
+      border:1px solid rgba(201,168,106,.25);
+      color:var(--gold);
+      font-size:1.1rem;
+      font-weight:900;
+    }
+
+    .compare{
+      display:grid;
+      gap:16px;
+      grid-template-columns:1fr;
+    }
+    .compare ul{
+      padding-left:18px;
+      margin:12px 0 0;
+      color:var(--muted);
+    }
+    .compare li{margin:10px 0}
+    .bad{border-color:rgba(255,80,80,.18)}
+    .good{border-color:rgba(201,168,106,.24)}
+
+    .price-wrap{
+      display:grid;
+      gap:18px;
+      grid-template-columns:1fr;
+    }
+    .price-card{
+      position:relative;
+      overflow:hidden;
+    }
+    .price-card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:3px;
+      background:linear-gradient(90deg,var(--gold), transparent);
+    }
+    .price-badge{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(201,168,106,.12);
+      border:1px solid rgba(201,168,106,.26);
+      color:var(--gold-2);
+      font-size:.75rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:16px;
+    }
+    .price-title{
+      font-size:1.7rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+      margin:0 0 8px;
+    }
+    .price-amount{
+      font-size:clamp(2.5rem, 8vw, 4.25rem);
+      font-weight:900;
+      line-height:1;
+      letter-spacing:-.06em;
+      color:var(--gold);
+      margin:16px 0 8px;
+    }
+    .price-sub{
+      color:#8b8b93;
+      font-size:.92rem;
+      margin-bottom:20px;
+    }
+    .list{
+      display:grid;
+      gap:10px;
+      margin:18px 0 0;
+    }
+    .list-item{
+      display:flex;
+      gap:10px;
+      color:var(--muted);
+      font-size:.95rem;
+      align-items:flex-start;
+    }
+    .check{
+      color:var(--gold);
+      font-weight:900;
+      line-height:1.2;
+    }
+
+    .testimonial{
+      position:relative;
+    }
+    .quote{
+      font-size:1rem;
+      color:var(--text);
+      margin:0 0 12px;
+    }
+    .author{
+      color:#8b8b93;
+      font-size:.9rem;
+      font-weight:600;
+    }
+
+    .faq{
+      display:grid;
+      gap:12px;
+    }
+    details{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:16px 18px;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:700;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .final{
+      padding:84px 0 94px;
+      text-align:center;
+    }
+    .final-box{
+      padding:34px 22px;
+      background:
+        radial-gradient(circle at top, rgba(201,168,106,.12), transparent 45%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+    }
+    .final h2{margin-bottom:14px}
+    .final p{
+      color:var(--muted);
+      max-width:680px;
+      margin:0 auto 24px;
+    }
+
+    footer{
+      padding:28px 0 40px;
+      border-top:1px solid rgba(255,255,255,.05);
+      color:#7b7b83;
+      font-size:.9rem;
+      text-align:center;
+    }
+    footer span{color:var(--gold)}
+
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:58px;
+      height:58px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:#25D366;
+      box-shadow:0 10px 24px rgba(37,211,102,.35);
+      z-index:60;
+    }
+    .wa-float svg{
+      width:28px;height:28px;fill:#fff;
+    }
+
+    @media (min-width: 768px){
+      .hero{padding:92px 0 62px}
+      .hero-grid{grid-template-columns:1.15fr .85fr;gap:34px}
+      .cards-2{grid-template-columns:1fr 1fr}
+      .cards-3{grid-template-columns:repeat(3,1fr)}
+      .cards-4{grid-template-columns:repeat(4,1fr)}
+      .about-box{grid-template-columns:1.05fr .95fr}
+      .compare{grid-template-columns:1fr 1fr}
+      .price-wrap{grid-template-columns:1fr .9fr}
+      .final-box{padding:44px 34px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div>trading<span>.tomas</span></div>
+      </div>
+      <a class="nav-cta" href="#precio">Ver mentoría →</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Mentoría + Formación · 2026</div>
+        <h1>Operá con lógica <span class="accent">institucional.</span></h1>
+        <p>
+          Aprendé a operar NQ y Forex con <strong>metodología estructural real</strong>.
+          Sin indicadores. Sin señales. Sin depender de nadie.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/5491154622197?text=Hola%20Tom%C3%A1s%2C%20quiero%20info%20sobre%20la%20mentor%C3%ADa%202026" target="_blank" rel="noopener noreferrer">
+            Quiero entrar a la mentoría →
+          </a>
+          <a class="btn btn-secondary" href="#incluye">
+            ¿Qué incluye? ↓
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="mini-stat">
+            <div class="num">2022</div>
+            <div class="label">Operando desde</div>
+          </div>
+          <div class="mini-stat">
+            <div class="num">NQ + FX</div>
+            <div class="label">Mercados foco</div>
+          </div>
+          <div class="mini-stat">
+            <div class="num">1:3+</div>
+            <div class="label">R:R mínimo</div>
+          </div>
+          <div class="mini-stat">
+            <div class="num">SMC</div>
+            <div class="label">Lógica estructural</div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:18px">
+          <h3>Lo que aprendés acá se ejecuta en mercado real</h3>
+          <p>
+            Estructura, liquidez, CHOCH, FVG, gestión de riesgo,
+            cuentas de fondeo y seguimiento. Todo orientado a que operes con proceso.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <div><span>•</span> Metodología estructural</div>
+      <div><span>•</span> CHOCH + FVG</div>
+      <div><span>•</span> Liquidez institucional</div>
+      <div><span>•</span> Gestión de riesgo</div>
+      <div><span>•</span> NQ & Forex</div>
+      <div><span>•</span> Cuentas de fondeo</div>
+      <div><span>•</span> Psicología del trader</div>
+
+      <div><span>•</span> Metodología estructural</div>
+      <div><span>•</span> CHOCH + FVG</div>
+      <div><span>•</span> Liquidez institucional</div>
+      <div><span>•</span> Gestión de riesgo</div>
+      <div><span>•</span> NQ & Forex</div>
+      <div><span>•</span> Cuentas de fondeo</div>
+      <div><span>•</span> Psicología del trader</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">¿Con quién vas a operar?</span>
+        <h2>No soy un curso. Soy un <span class="accent">operador.</span></h2>
+        <p class="lead">
+          Llevo desde 2022 operando NQ y Forex con metodología estructural basada en lógica institucional.
+          Lo que enseño es lo que uso. Sin adornos. Sin humo.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <div class="card">
+          <h3>@trading.tomas</h3>
+          <p style="margin-bottom:18px">
+            Day Trader · NQ & Forex · Argentina
+          </p>
+
+          <div class="grid cards-2">
+            <div class="mini-stat">
+              <div class="num">3+</div>
+              <div class="label">Años operando</div>
+            </div>
+            <div class="mini-stat">
+              <div class="num">NQ</div>
+              <div class="label">Nasdaq Futures</div>
+            </div>
+            <div class="mini-stat">
+              <div class="num">FX</div>
+              <div class="label">Forex Spot</div>
+            </div>
+            <div class="mini-stat">
+              <div class="num">1:3+</div>
+              <div class="label">R:R mínimo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card feature">
+            <div class="icon">📌</div>
+            <div>
+              <h3>Metodología ejecutable</h3>
+              <p>No busco que te aprendas teoría para repetirla. Busco que sepas leer, validar y ejecutar.</p>
+            </div>
+          </div>
+
+          <div class="card feature">
+            <div class="icon">🧠</div>
+            <div>
+              <h3>Proceso por encima de la emoción</h3>
+              <p>FOMO, sobreoperar, revenge trading y mala gestión. Atacamos lo que de verdad te frena.</p>
+            </div>
+          </div>
+
+          <div class="card feature">
+            <div class="icon">📈</div>
+            <div>
+              <h3>Enfoque real en fondeo y consistencia</h3>
+              <p>No dependés de señales. Aprendés a construir criterio para operar solo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="incluye">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">El programa</span>
+        <h2>Todo lo que necesitás para <span class="accent">operar solo.</span></h2>
+      </div>
+
+      <div class="grid cards-2">
+        <div class="card feature">
+          <div class="icon">📐</div>
+          <div>
+            <h3>Estructura de mercado</h3>
+            <p>HH, HL, LH, LL, tendencia, rango y lectura previa antes de cualquier ejecución.</p>
+          </div>
+        </div>
+
+        <div class="card feature">
+          <div class="icon">💧</div>
+          <div>
+            <h3>Liquidez institucional</h3>
+            <p>BSL, SSL, máximos, mínimos y barridos. Entender por qué el precio va donde va.</p>
+          </div>
+        </div>
+
+        <div class="card feature">
+          <div class="icon">🎯</div>
+          <div>
+            <h3>Metodología de entrada</h3>
+            <p>CHOCH, impulso, FVG, retroceso y validación. Un proceso claro, no improvisado.</p>
+          </div>
+        </div>
+
+        <div class="card feature">
+          <div class="icon">🛡️</div>
+          <div>
+            <h3>Gestión de riesgo real</h3>
+            <p>SL estructural, R:R, sizing, límites y reglas para proteger cuenta y mente.</p>
+          </div>
+        </div>
+
+        <div class="card feature">
+          <div class="icon">💰</div>
+          <div>
+            <h3>Cuentas de fondeo</h3>
+            <p>Cómo pasar evaluaciones, qué errores te queman y cómo encarar el proceso bien.</p>
+          </div>
+        </div>
+
+        <div class="card feature">
+          <div class="icon">💬</div>
+          <div>
+            <h3>Seguimiento y soporte</h3>
+            <p>Grupo privado, resolución de dudas, sesgo diario y acompañamiento de ejecución.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">La diferencia</span>
+        <h2>Sin metodología vs con <span class="accent">metodología.</span></h2>
+      </div>
+
+      <div class="compare">
+        <div class="card bad">
+          <h3>Sin metodología</h3>
+          <ul>
+            <li>Entrás por impulso o por emoción.</li>
+            <li>No sabés dónde invalidar la idea.</li>
+            <li>Sobreoperás después de perder.</li>
+            <li>Dependés de señales de otros.</li>
+            <li>Los resultados cambian todo el tiempo.</li>
+          </ul>
+        </div>
+
+        <div class="card good">
+          <h3>Con metodología</h3>
+          <ul>
+            <li>Entrás cuando el proceso lo valida.</li>
+            <li>El stop siempre tiene lógica estructural.</li>
+            <li>Aceptás el riesgo antes de ejecutar.</li>
+            <li>Podés repetir y medir el mismo modelo.</li>
+            <li>Operás con criterio propio.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="precio">
+    <div class="container">
+      <div class="price-wrap">
+        <div>
+          <div class="section-head">
+            <span class="tag">Inversión</span>
+            <h2>Un solo plan. <span class="accent">Completo.</span></h2>
+            <p class="lead">
+              Mentoría + formación + seguimiento. Cupos limitados para mantener calidad real de acompañamiento.
+            </p>
+          </div>
+
+          <div class="card price-card">
+            <div class="price-badge">Mentoría 2026</div>
+            <div class="price-title">Acceso completo al programa</div>
+            <div class="price-amount">Consultar</div>
+            <div class="price-sub">Precio por WhatsApp · Cupos limitados</div>
+
+            <div class="list">
+              <div class="list-item"><span class="check">✓</span><span>Metodología completa paso a paso</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Estructura · Liquidez · CHOCH + FVG</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Gestión de riesgo y proceso</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Fondeo y consistencia</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Grupo privado y seguimiento</span></div>
+              <div class="list-item"><span class="check">✓</span><span>Acceso directo para consultas</span></div>
+            </div>
+
+            <div style="margin-top:22px">
+              <a class="btn btn-primary" href="https://wa.me/5491154622197?text=Hola%20Tom%C3%A1s%2C%20quiero%20info%20y%20precio%20de%20la%20mentor%C3%ADa%202026" target="_blank" rel="noopener noreferrer">
+                Consultar precio por WhatsApp →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid cards-1">
+          <div class="card testimonial">
+            <h3>Resultados reales</h3>
+            <p class="quote">“Antes entraba por emoción. Ahora entiendo qué validar y cuándo ejecutar.”</p>
+            <div class="author">Alumno de la mentoría</div>
+          </div>
+
+          <div class="card testimonial">
+            <p class="quote">“La forma de leer estructura y liquidez me cambió cómo veo el gráfico.”</p>
+            <div class="author">Alumno de la mentoría</div>
+          </div>
+
+          <div class="card testimonial">
+            <p class="quote">“Dejé de operar por impulso y empecé a tener un proceso.”</p>
+            <div class="author">Alumno de la mentoría</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Preguntas frecuentes</span>
+        <h2>Lo que todos <span class="accent">preguntan.</span></h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>¿Necesito experiencia previa?</summary>
+          <p>No. Si ya operás, ordenás lo que hacés. Si empezás de cero, construís una base correcta desde el principio.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué mercados se trabajan?</summary>
+          <p>El foco principal está en NQ y Forex, con lógica estructural aplicable a mercados líquidos.</p>
+        </details>
+
+        <details>
+          <summary>¿Das señales?</summary>
+          <p>No. El objetivo es que aprendas a operar solo. Se trabaja sesgo, validación y ejecución con criterio.</p>
+        </details>
+
+        <details>
+          <summary>¿También sirve para cuentas de fondeo?</summary>
+          <p>Sí. Una parte importante del proceso está orientada a evaluación, gestión y errores típicos de fondeo.</p>
+        </details>
+
+        <details>
+          <summary>¿Cómo me sumo?</summary>
+          <p>Por WhatsApp. Escribís, te paso info y vemos si el programa encaja con tu punto actual.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container">
+      <div class="final-box">
+        <span class="tag">Último paso</span>
+        <h2>Empezá a operar con <span class="accent">estructura.</span></h2>
+        <p>
+          Si llegaste hasta acá, ya sabés que seguir improvisando sale caro.
+          Escribime y te paso la info completa de la mentoría.
+        </p>
+        <a class="btn btn-primary" href="https://wa.me/5491154622197?text=Hola%20Tom%C3%A1s%2C%20quiero%20sumarme%20a%20la%20mentor%C3%ADa%202026" target="_blank" rel="noopener noreferrer">
+          Escribime por WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 <span>@trading.tomas</span> · Mentoría + Formación · NQ & Forex
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/5491154622197?text=Hola%20Tom%C3%A1s%2C%20quiero%20info%20sobre%20la%20mentor%C3%ADa%202026" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</body>
+</html>
