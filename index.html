@@ -370,21 +370,22 @@
       letter-spacing:-.03em;
     }
     .result-image{
-      overflow:hidden;
-      border-radius:20px;
-      background:#0a1424;
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow);
-    }
-   .result-image img{
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0a1424;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--shadow);
+  padding:10px;
 }
     .result-image{
-  overflow: hidden;
-  border-radius: 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.result-image:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,255,200,0.15);
 }
     .caption{
       margin-top:10px;
