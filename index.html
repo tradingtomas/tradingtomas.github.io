@@ -580,17 +580,34 @@
     }
     .wa-float svg{width:28px;height:28px;fill:#fff}
 
-    @media (min-width: 760px){
-      .hero-grid{grid-template-columns:1.12fr .88fr}
-      .authority-grid{grid-template-columns:repeat(4,1fr)}
-      .includes-grid{grid-template-columns:repeat(2,1fr)}
-      .results-grid{grid-template-columns:repeat(2,1fr)}
-      .students-grid{grid-template-columns:repeat(3,1fr)}
-      .plans-grid{grid-template-columns:repeat(4,1fr)}
-      .testi-grid{grid-template-columns:repeat(3,1fr)}
-      .faq-grid{grid-template-columns:repeat(2,1fr)}
-      .split{grid-template-columns:1fr 1fr}
-    }
+@media (min-width: 760px){
+  .hero-grid{grid-template-columns:1.12fr .88fr}
+  .authority-grid{grid-template-columns:repeat(4,1fr)}
+  .includes-grid{grid-template-columns:repeat(2,1fr)}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .students-grid{grid-template-columns:repeat(3,1fr)}
+ .plans-grid{
+  grid-template-columns:repeat(4,1fr);
+  align-items:stretch;
+}
+  .plan{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+
+  .plan ul{
+    flex-grow:1;
+  }
+
+  .plan .btn{
+    margin-top:auto;
+  }
+
+  .testi-grid{grid-template-columns:repeat(3,1fr)}
+  .faq-grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr 1fr}
+}
 
     @media (max-width: 759px){
       .nav-actions .btn-secondary{display:none}
